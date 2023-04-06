@@ -1,0 +1,109 @@
+Cài đặt : 
+#include<bits/stdc++.h>
+using namespace std;
+ 
+stack<int> st;
+ 
+int main(){
+    // Thêm các phần tử vào stack
+    st.push(1);
+    st.push(3);
+    st.push(5);
+    // Hiện tại stack là [1, 3, 5]
+ 
+    // In ra phần tử cuối cùng trong stack và kích thước stack
+    cout << "Phan tu cuoi cung trong stack la:" << st.top() << endl;
+    cout << "Kich thuoc hien tai cua stack la:" << st.size() << endl;
+ 
+    // Loại bỏ 1 phần tử ra khỏi stack
+    st.pop();
+    cout << "Loai bo phan tu cuoi ra khoi stack" << endl;
+    // Hiện tại stack là [1, 3]
+ 
+    // Kiểm tra stack có rỗng không
+    if(st.empty()) cout << "Stack rong" << endl;
+    else cout << "Stack khong rong" << endl;
+ 
+    // Sau khi loại bỏ 1 phần tử ra in ra phần tử cuối cùng trong stack và kích thước stack
+    cout << "Phan tu cuoi cung trong stack la:" << st.top() << endl;
+    cout << "Kich thuoc hien tai cua stack la:" << st.size() << endl;
+ 
+    // Loại bỏ tất cả các phần tử ra khỏi stack
+    while(st.size() > 0) st.pop();
+ 
+    // Kiểm tra stack có rỗng không
+    if(st.empty()) cout << "Stack rong" << endl;
+    else cout << "Stack khong rong" << endl;
+}
+Ví dụ 
+#include <iostream>
+using namespace std;
+
+#define max 10000
+int Stack[max];
+int Top;
+
+//init Stack with Top = -1
+void StackInit(){
+	Top = -1;
+}
+
+void push(int V){
+	if(Top > max-1){
+		cout<<"Stack is full";
+	}else{
+		Top++;
+		Stack[Top] = V;
+	}
+}
+
+int pop(){
+	if (Top == -1){
+		cout<<"Stack is empty";
+		return -1;
+	}else{
+		int res = Stack[Top];
+		Top--;
+		return res;
+	}
+}
+
+int empty(){
+	if(Top == -1){
+		return 0;//stack is empty
+	}
+	return 1;//stack isnot empty
+}
+
+int size(){
+	return Top+1;//size of stack
+}
+
+//return value at Top
+int top(){
+	if (Top == -1){
+		cout<<"Stack is empty";
+		return -1;
+	}else{
+		int res = Stack[Top];
+		return res;
+	}
+}
+int main(){
+	//init Stack
+	StackInit();
+	//push to Stack
+	push(5);
+	push(21);
+	push(10);
+	push(99);
+	push(101);
+	//size of Stack
+	cout<<"Size of Stack = "<<size()<<endl;
+	//pop from Stack
+	cout<<pop()<<endl;
+	cout<<pop()<<endl;
+	//size of Stack after pop
+	cout<<"Size of Stack after pop = "<<size()<<endl;
+	system("pause");
+}
